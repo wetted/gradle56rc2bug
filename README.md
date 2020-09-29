@@ -1,5 +1,6 @@
 ### Demo of Gradle 6.7-rc-2 annotation processing problem
 see `build.gradle`
+run `./gradlew clean assemble`
 
 ## Feature http-client documentation
 
