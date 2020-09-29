@@ -1,3 +1,6 @@
+### Demo of Gradle 6.7-rc-2 annotation processing problem
+see `build.gradle`
+
 ## Feature http-client documentation
 
 - [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)

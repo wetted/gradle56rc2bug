@@ -39,6 +39,26 @@ java {
     targetCompatibility = JavaVersion.toVersion('1.8')
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.compilerArgs.addAll([
+            '-parameters',
+            // enables incremental compilation
+            '-Amicronaut.processing.incremental=true',
+            '-Amicronaut.processing.annotations=com.objectcomputing.*',
+            "-Amicronaut.processing.group=$project.group",
+            "-Amicronaut.processing.module=$project.name",
+    ])
 
+    // if the following is enabled compile fails using gradle 6.7-rc-2 with the error
+    //    Execution failed for task ':compileJava'.
+    //    > java.lang.NoClassDefFoundError: com/sun/tools/javac/code/Symbol$ClassSymbol
+    // see stacktrace.txt in the project
+    // if I change to gradle 6.6.1 it works.
+    options.fork = true
+    options.forkOptions.jvmArgs = [
+            '-Dmicronaut.openapi.views.spec=redoc.enabled=true,rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop'
+    ]
+}
 
 
