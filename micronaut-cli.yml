@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.objectcomputing.wetted
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [app-name, graalvm, gradle, http-client, java, java-application, logback, netty-server, openapi, readme, shade, spock, yaml]
